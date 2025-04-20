@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cw1.tw/CW/opinion/images/common/old/shutterstock_191690525.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            background-color: rgba(112, 151, 248, 0.873);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(12, 12, 12, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #39c571;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8945a0;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>生化軌道組教育訓練系統登入</h2>
+        <form id="loginForm">
+            <label for="username">帳號:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">密碼:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="validateLogin()">登入</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if ((username === 'admin' && password === 'admin') || (username === '39222' && password === '39222')) {
+                // 登入成功
+                errorMessage.innerHTML = '';
+                alert('登入成功');
+                window.location.href = 'https://sites.google.com/view/cgmhstat/%E9%A6%96%E9%A0%81';
+            } else {
+                // 登入失敗
+                errorMessage.innerHTML = '帳號或密碼錯誤';
+            }
+        }
+    </script>
+</body>
+</html>
